@@ -2,10 +2,12 @@ package by.gstu.DAO;
 
 import by.gstu.Entities.Children;
 
+import java.util.List;
+
 public interface ChildrenDAO {
-    public int insertChildren();
-    public boolean deleteChildren();
-    public boolean updateChildren();
-    public Children findChildren(int id);
-    //List<Children> findChildrens(String firstName, String secondName, String thirdName);
+    boolean insertChildren(Children children);
+    boolean deleteChildren(Children children);
+    boolean updateChildren(Children children);
+    Children findChildren(int id);
+    List<Children> getAllChildrens();
 }
