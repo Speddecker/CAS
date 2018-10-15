@@ -12,10 +12,9 @@ public class MySQLDAOFactory extends DAOFactory {
     private static final String USER = "root";
     private static final String PASSWORD = "root";
 
-    public static Connection createConnection() {
+    static Connection createConnection() {
         try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            return connection;
+            return DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException e) {
             e.printStackTrace();
         }

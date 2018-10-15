@@ -11,7 +11,7 @@ public class MySQLChildrenDAO implements ChildrenDAO {
     private static Connection connection;
     private static ResourceBundle queries = ResourceBundle.getBundle("by.gstu.Queries");
 
-    public MySQLChildrenDAO() {
+    MySQLChildrenDAO() {
         connection = MySQLDAOFactory.createConnection();
     }
 
@@ -51,7 +51,7 @@ public class MySQLChildrenDAO implements ChildrenDAO {
     @Override
     public boolean updateChildren(Children children) {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(queries.getString("UPDATE_CHILDREN"));
+            PreparedStatement preparedStatement = connection.prepareStatement(queries.getString("UPDATE_CHILDREN_BY_ID"));
             preparedStatement.setString(1, children.getFirstName());
             preparedStatement.setString(2, children.getSecondName());
             preparedStatement.setString(3, children.getThirdName());

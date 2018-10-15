@@ -2,10 +2,12 @@ package by.gstu.DAO;
 
 import by.gstu.Entities.ChildGroup;
 
+import java.util.List;
+
 public interface ChildGroupDAO {
-    int insertChildGroup();
-    boolean deleteChildGroup();
-    boolean updateChildGroup();
+    boolean insertChildGroup(ChildGroup childGroup);
+    boolean deleteChildGroup(ChildGroup childGroup);
+    boolean updateChildGroup(ChildGroup childGroup);
     ChildGroup findChildGroup(int id);
-    //public List<ChildGroup> findChildGroups(String name);
+    List<ChildGroup> getAllChildGroups();
 }
