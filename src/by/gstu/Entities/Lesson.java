@@ -1,25 +1,15 @@
 package by.gstu.Entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Lesson {
     private int id;
     private String name;
-    private Date classDate;
+    private LocalDate classDate;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public Lesson(int id, String name, LocalDate classDate) {
+        this.id = id;
         this.name = name;
-    }
-
-    public Date getClassDate() {
-        return classDate;
-    }
-
-    public void setClassDate(Date classDate) {
         this.classDate = classDate;
     }
 
@@ -29,5 +19,26 @@ public class Lesson {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalDate getClassDate() {
+        return classDate;
+    }
+
+    public void setClassDate(LocalDate classDate) {
+        this.classDate = classDate;
+    }
+
+    @Override
+    public String toString() {
+        return "ID: " + id + "\nНазвание учебного предмета: " + name + "\nВремя проведения занятия: " + classDate + "\n";
     }
 }
