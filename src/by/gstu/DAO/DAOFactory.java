@@ -1,7 +1,20 @@
+/*
+ * Creator: Ivanov Stanislav
+ *
+ * Last modification 14.11.2018
+ *
+ */
+
 package by.gstu.DAO;
 
 import by.gstu.DAO.MySQLDAO.MySQLDAOFactory;
 
+
+/**
+ * Abstract class of Data Access Object
+ *
+ * @Author Stanislav Ivanov
+ */
 public abstract class DAOFactory {
     public static final int MYSQL = 1;
 

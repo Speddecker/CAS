@@ -1,3 +1,10 @@
+/*
+ * Creator: Ivanov Stanislav
+ *
+ * Last modification 24.11.2018
+ *
+ */
+
 package by.gstu.DAO.MySQLDAO;
 
 import by.gstu.DAO.ChildrenDAO;
@@ -7,14 +14,28 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.*;
 
+
+/**
+ * Implementation of Children data access object for mysql
+ *
+ * @Author Stanislav Ivanov
+ */
 public class MySQLChildrenDAO implements ChildrenDAO {
     private static Connection connection;
     private static ResourceBundle queries = ResourceBundle.getBundle("by.gstu.Queries");
 
+    /**
+     * Constructor that initialize connection
+     */
     MySQLChildrenDAO() {
-        connection = MySQLDAOFactory.createConnection();
+        connection = MySQLDAOFactory.getConnection();
     }
 
+    /**
+     * Method which implements insertChildren for interface  ChildrenDAO
+     * @param children Full-filled instance of children class
+     * @return Status about success of inserting
+     */
     @Override
     public boolean insertChildren(Children children) {
         try {
@@ -33,6 +54,11 @@ public class MySQLChildrenDAO implements ChildrenDAO {
         return false;
     }
 
+    /**
+     * Method which implements deleteChildren for interface ChildrenDAO
+     * @param children Full-filled instance of children class
+     * @return Status about success of deleting
+     */
     @Override
     public boolean deleteChildren(Children children) {
         try {
@@ -48,6 +74,11 @@ public class MySQLChildrenDAO implements ChildrenDAO {
         return false;
     }
 
+    /**
+     * Method which implements updateChildren for interface ChildrenDAO
+     * @param children Full-filled instance of children class
+     * @return Status about success of updating
+     */
     @Override
     public boolean updateChildren(Children children) {
         try {
@@ -67,6 +98,11 @@ public class MySQLChildrenDAO implements ChildrenDAO {
         return false;
     }
 
+    /**
+     * Method which implements findChildren for interface ChildrenDAO
+     * @param id identificator of record in database
+     * @return Full-filled instance of children class
+     */
     @Override
     public Children findChildren(int id) {
         try {
@@ -89,6 +125,10 @@ public class MySQLChildrenDAO implements ChildrenDAO {
         return null;
     }
 
+    /**
+     * Method which implements getAllChildrens of interface ChildrensDAO
+     * @return List of children class instances
+     */
     @Override
     public List<Children> getAllChildrens() {
         try {

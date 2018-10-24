@@ -1,10 +1,29 @@
+/*
+ * Creator: Ivanov Stanislav
+ *
+ * Last modification 16.11.2018
+ *
+ */
+
 package by.gstu.Entities;
 
+
+/**
+ * Class that describes chidren group entity
+ *
+ * @Author Stanislav Ivanov
+ */
 public class ChildGroup {
     private int id;
     private String name;
     private String educatorFullName;
 
+    /**
+     * Constructor for full-filled class instance
+     * @param id unique identificator
+     * @param name Child group name
+     * @param educatorFullName Educator full name
+     */
     public ChildGroup(int id, String name, String educatorFullName) {
         this.id = id;
         this.name = name;

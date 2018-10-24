@@ -1,3 +1,10 @@
+/*
+ * Creator: Ivanov Stanislav
+ *
+ * Last modification 24.11.2018
+ *
+ */
+
 package by.gstu.DAO.MySQLDAO;
 
 import by.gstu.DAO.ChildGroupDAO;
@@ -11,14 +18,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+
+/**
+ * Implementation of ChildrenGroup data access object for mysql
+ *
+ * @Author Stanislav Ivanov
+ */
 public class MySQLChildGroupDAO implements ChildGroupDAO {
     private static Connection connection;
     private static ResourceBundle queries = ResourceBundle.getBundle("by.gstu.Queries");
 
+    /**
+     * Constructor that initialize connection
+     */
     public MySQLChildGroupDAO() {
-        connection = MySQLDAOFactory.createConnection();
+        connection = MySQLDAOFactory.getConnection();
     }
 
+    /**
+     * Method which implements insertChildGroup for interface  ChildGroupDAO
+     * @param childGroup Full-filled instance of child group class
+     * @return Status about success of inserting
+     */
     @Override
     public boolean insertChildGroup(ChildGroup childGroup) {
         try {
@@ -32,6 +53,11 @@ public class MySQLChildGroupDAO implements ChildGroupDAO {
         return false;
     }
 
+    /**
+     * Method which implements deleteChildGroup for interface  ChildGroupDAO
+     * @param childGroup Full-filled instance of child group class
+     * @return Status about success of deleting
+     */
     @Override
     public boolean deleteChildGroup(ChildGroup childGroup) {
         try {
@@ -44,6 +70,11 @@ public class MySQLChildGroupDAO implements ChildGroupDAO {
         return false;
     }
 
+    /**
+     * Method which implements updateChildGroup for interface  ChildGroupDAO
+     * @param childGroup Full-filled instance of child group class
+     * @return Status about success of updating
+     */
     @Override
     public boolean updateChildGroup(ChildGroup childGroup) {
         try {
@@ -58,6 +89,11 @@ public class MySQLChildGroupDAO implements ChildGroupDAO {
         return false;
     }
 
+    /**
+     * Method which implements findChildGroup for interface  ChildGroupDAO
+     * @param id identificator of record in database
+     * @return Full-filled instance of child group class
+     */
     @Override
     public ChildGroup findChildGroup(int id) {
         try {
@@ -76,6 +112,10 @@ public class MySQLChildGroupDAO implements ChildGroupDAO {
         return null;
     }
 
+    /**
+     * Method which implements getAllChildGroups of interface ChildGroupDAO
+     * @return List of child groups instances
+     */
     @Override
     public List<ChildGroup> getAllChildGroups() {
         try {

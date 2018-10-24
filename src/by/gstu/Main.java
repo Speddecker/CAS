@@ -1,3 +1,10 @@
+/*
+ * Creator: Ivanov Stanislav
+ *
+ * Last modification 24.11.2018
+ *
+ */
+
 package by.gstu;
 
 import by.gstu.DAO.ChildGroupDAO;

@@ -1,8 +1,37 @@
+/*
+ * Creator: Ivanov Stanislav
+ *
+ * Last modification 16.11.2018
+ *
+ */
+
 package by.gstu.Entities;
 
 import java.time.LocalDate;
 
+
+/**
+ * Class that describes chidren entity
+ *
+ * @Author Stanislav Ivanov
+ */
 public class Children {
+    private int id;
+    private String firstName;
+    private String secondName;
+    private String thirdName;
+    private LocalDate dateOfBirth;
+    private String childGroup;
+
+    /**
+     * Constructor for full-filled class instance
+     * @param id unique identificator
+     * @param firstName
+     * @param secondName
+     * @param thirdName
+     * @param dateOfBirth
+     * @param childGroup name of the child group
+     */
     public Children(int id, String firstName, String secondName, String thirdName, LocalDate dateOfBirth, String childGroup) {
         this.id = id;
         this.firstName = firstName;
@@ -12,12 +41,6 @@ public class Children {
         this.childGroup = childGroup;
     }
 
-    private int id;
-    private String firstName;
-    private String secondName;
-    private String thirdName;
-    private LocalDate dateOfBirth;
-    private String childGroup;
 
     public int getId() {
         return id;

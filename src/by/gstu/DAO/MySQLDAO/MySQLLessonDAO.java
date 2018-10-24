@@ -1,3 +1,10 @@
+/*
+ * Creator: Ivanov Stanislav
+ *
+ * Last modification 24.11.2018
+ *
+ */
+
 package by.gstu.DAO.MySQLDAO;
 
 import by.gstu.DAO.LessonDAO;
@@ -9,14 +16,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Implementation of Lesson data access objetc for mysql
+ *
+ * @Author Stanislav Ivanov
+ */
 public class MySQLLessonDAO implements LessonDAO {
     private static Connection connection;
     private static ResourceBundle queries = ResourceBundle.getBundle("by.gstu.Queries");
 
+    /**
+     * Constructor that initialize connection
+     */
     public MySQLLessonDAO() {
-        connection = MySQLDAOFactory.createConnection();
+        connection = MySQLDAOFactory.getConnection();
     }
 
+    /**
+     * Method which implements insertLesson for interface LessonDAO
+     * @param lesson Full-filled instance of lesson class
+     * @return Status about success of inserting
+     */
     @Override
     public boolean insertLesson(Lesson lesson) {
         try {
@@ -30,6 +50,11 @@ public class MySQLLessonDAO implements LessonDAO {
         return false;
     }
 
+    /**
+     * Method which implements deleteLesson for interface LessonDAO
+     * @param lesson Full-filled instance of lesson class
+     * @return Status about success of deleting
+     */
     @Override
     public boolean deleteLesson(Lesson lesson) {
         try {
@@ -42,6 +67,11 @@ public class MySQLLessonDAO implements LessonDAO {
         return false;
     }
 
+    /**
+     * Method which implements updateLesson for interface LessonDAO
+     * @param lesson Full-filled instance of lesson class
+     * @return Status about success of updating
+     */
     @Override
     public boolean updateLesson(Lesson lesson) {
         try {
@@ -56,6 +86,11 @@ public class MySQLLessonDAO implements LessonDAO {
         return false;
     }
 
+    /**
+     * Method which implements findLesson for interface LessonDAO
+     * @param id identificator of record in database
+     * @return Full-filled instance of lesson class
+     */
     @Override
     public Lesson findLesson(int id) {
         try {
@@ -74,6 +109,10 @@ public class MySQLLessonDAO implements LessonDAO {
         return null;
     }
 
+    /**
+     * Method which implements getAllLessons of interface LessonsDAO
+     * @return List of lesson class instances
+     */
     @Override
     public List<Lesson> getAllLessons() {
         try {
