@@ -21,7 +21,7 @@ public class Children {
     private String secondName;
     private String thirdName;
     private LocalDate dateOfBirth;
-    private String childGroup;
+    private int childGroupId;
 
     /**
      * Constructor for full-filled class instance
@@ -30,15 +30,15 @@ public class Children {
      * @param secondName
      * @param thirdName
      * @param dateOfBirth
-     * @param childGroup name of the child group
+     * @param childGroupId name of the child group
      */
-    public Children(int id, String firstName, String secondName, String thirdName, LocalDate dateOfBirth, String childGroup) {
+    public Children(int id, String firstName, String secondName, String thirdName, LocalDate dateOfBirth, int childGroupId) {
         this.id = id;
         this.firstName = firstName;
         this.secondName = secondName;
         this.thirdName = thirdName;
         this.dateOfBirth = dateOfBirth;
-        this.childGroup = childGroup;
+        this.childGroupId = childGroupId;
     }
 
 
@@ -82,17 +82,17 @@ public class Children {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getChildGroup() {
-        return childGroup;
+    public int getChildGroupId() {
+        return childGroupId;
     }
 
-    public void setChildGroup(String childGroup) {
-        this.childGroup = childGroup;
+    public void setChildGroup(int childGroupId) {
+        this.childGroupId = childGroupId;
     }
 
     @Override
     public String toString() {
         return "ID: " + id +  "\nФамилия: " + secondName + "\nИмя:" + firstName + "\nОтчество: " + thirdName + "\nДата рождения: " +
-                dateOfBirth + "\nГруппа: " + childGroup;
+                dateOfBirth + "\nГруппа: " + childGroupId;
     }
 }

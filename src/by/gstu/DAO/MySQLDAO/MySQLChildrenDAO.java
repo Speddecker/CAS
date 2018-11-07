@@ -44,7 +44,7 @@ public class MySQLChildrenDAO implements ChildrenDAO {
             preparedStatement.setString(2, children.getSecondName());
             preparedStatement.setString(3, children.getThirdName());
             preparedStatement.setDate(4, java.sql.Date.valueOf(children.getDateOfBirth()));
-            preparedStatement.setInt(5, 1); //TODO: Исправить на вставку правильного child_group_id
+            preparedStatement.setInt(5, children.getChildGroupId());
             preparedStatement.executeUpdate();
 
             return true;
@@ -87,7 +87,7 @@ public class MySQLChildrenDAO implements ChildrenDAO {
             preparedStatement.setString(2, children.getSecondName());
             preparedStatement.setString(3, children.getThirdName());
             preparedStatement.setDate(4, java.sql.Date.valueOf(children.getDateOfBirth()));
-            preparedStatement.setInt(5, 1); //TODO: Исправить на вставку правильного child_group_id
+            preparedStatement.setInt(5, children.getChildGroupId());
             preparedStatement.setInt(6, children.getId());
             preparedStatement.executeUpdate();
 
@@ -115,9 +115,9 @@ public class MySQLChildrenDAO implements ChildrenDAO {
             String secondName = resultSet.getString("second_name");
             String thirdName = resultSet.getString("third_name");
             LocalDate dateOfBirth = resultSet.getDate("date_of_birth").toLocalDate();
-            String group_name = resultSet.getString("group_name");
+            int childGroupId = resultSet.getInt("child_groups_id");
 
-            return new Children(id, firstName, secondName, thirdName, dateOfBirth, group_name);
+            return new Children(id, firstName, secondName, thirdName, dateOfBirth, childGroupId);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -143,9 +143,9 @@ public class MySQLChildrenDAO implements ChildrenDAO {
                 String secondName = resultSet.getString("second_name");
                 String thirdName = resultSet.getString("third_name");
                 LocalDate dateOfBirth = resultSet.getDate("date_of_birth").toLocalDate();
-                String group_name = resultSet.getString("group_name");
+                int childGroupId = resultSet.getInt("child_groups_id");
 
-                childrenList.add(new Children(id, firstName, secondName, thirdName, dateOfBirth, group_name));
+                childrenList.add(new Children(id, firstName, secondName, thirdName, dateOfBirth, childGroupId));
             }
 
             return childrenList;

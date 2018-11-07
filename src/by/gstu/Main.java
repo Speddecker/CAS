@@ -23,16 +23,10 @@ public class Main {
         DAOFactory mysqlFactory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 
         try {
-            LessonDAO lessonDAO = mysqlFactory.getLessonDAO();
+            ChildrenDAO childrenDAO = mysqlFactory.getChildrenDAO();
 
-            Lesson lesson1 = new Lesson(3, "ТРПОСУ", LocalDate.of(2018, 10, 20));
-            Lesson lesson2 = new Lesson(4, "ИОСУ", LocalDate.of(2018, 10, 21));
-
-            lessonDAO.insertLesson(lesson1);
-            lessonDAO.insertLesson(lesson2);
-
-            for (Lesson lesson : lessonDAO.getAllLessons()) {
-                System.out.println(lesson);
+            for(Children children : childrenDAO.getAllChildrens()) {
+                System.out.println(children);
             }
 
         } catch (NullPointerException e) {
