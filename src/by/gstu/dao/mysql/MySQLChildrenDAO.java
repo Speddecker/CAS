@@ -5,10 +5,10 @@
  *
  */
 
-package by.gstu.DAO.MySQLDAO;
+package by.gstu.dao.MySQLDAO;
 
-import by.gstu.DAO.ChildrenDAO;
-import by.gstu.Entities.Children;
+import by.gstu.dao.ChildrenDAO;
+import by.gstu.entities.Children;
 
 import java.sql.*;
 import java.time.LocalDate;

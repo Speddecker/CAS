@@ -41,6 +41,14 @@ public class Children {
         this.childGroupId = childGroupId;
     }
 
+    public Children(String firstName, String secondName, String thirdName, LocalDate dateOfBirth, int childGroupId) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.thirdName = thirdName;
+        this.dateOfBirth = dateOfBirth;
+        this.childGroupId = childGroupId;
+    }
+
 
     public int getId() {
         return id;

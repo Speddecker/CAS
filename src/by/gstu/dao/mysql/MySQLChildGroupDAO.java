@@ -5,10 +5,10 @@
  *
  */
 
-package by.gstu.DAO.MySQLDAO;
+package by.gstu.dao.MySQLDAO;
 
-import by.gstu.DAO.ChildGroupDAO;
-import by.gstu.Entities.ChildGroup;
+import by.gstu.dao.ChildGroupDAO;
+import by.gstu.entities.ChildGroup;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

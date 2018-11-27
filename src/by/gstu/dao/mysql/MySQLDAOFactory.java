@@ -5,12 +5,12 @@
  *
  */
 
-package by.gstu.DAO.MySQLDAO;
+package by.gstu.dao.MySQLDAO;
 
-import by.gstu.DAO.ChildGroupDAO;
-import by.gstu.DAO.ChildrenDAO;
-import by.gstu.DAO.DAOFactory;
-import by.gstu.DAO.LessonDAO;
+import by.gstu.dao.ChildGroupDAO;
+import by.gstu.dao.ChildrenDAO;
+import by.gstu.dao.DAOFactory;
+import by.gstu.dao.LessonDAO;
 import by.gstu.util.ConnectionPool;
 import by.gstu.util.MySQLConnectionPool;
 
