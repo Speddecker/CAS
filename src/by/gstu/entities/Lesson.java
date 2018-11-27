@@ -5,7 +5,7 @@
  *
  */
 
-package by.gstu.Entities;
+package by.gstu.entities;
 
 import java.time.LocalDate;
 
@@ -29,6 +29,11 @@ public class Lesson {
     public Lesson(int id, String name, LocalDate classDate) {
         this.id = id;
         this.name = name;
+        this.classDate = classDate;
+    }
+
+    public Lesson(String lessonName, LocalDate classDate) {
+        this.name = lessonName;
         this.classDate = classDate;
     }
 

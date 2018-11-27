@@ -5,9 +5,9 @@
  *
  */
 
-package by.gstu.DAO;
+package by.gstu.dao;
 
-import by.gstu.Entities.Lesson;
+import by.gstu.entities.Lesson;
 
 import java.util.List;
 

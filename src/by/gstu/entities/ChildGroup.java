@@ -5,7 +5,7 @@
  *
  */
 
-package by.gstu.Entities;
+package by.gstu.entities;
 
 
 /**
@@ -27,6 +27,11 @@ public class ChildGroup {
     public ChildGroup(int id, String name, String educatorFullName) {
         this.id = id;
         this.name = name;
+        this.educatorFullName = educatorFullName;
+    }
+
+    public ChildGroup(String groupName, String educatorFullName) {
+        this.name = groupName;
         this.educatorFullName = educatorFullName;
     }
 

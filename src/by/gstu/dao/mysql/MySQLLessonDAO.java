@@ -5,7 +5,7 @@
  *
  */
 
-package by.gstu.dao.MySQLDAO;
+package by.gstu.dao.mysql;
 
 import by.gstu.dao.LessonDAO;
 import by.gstu.entities.Lesson;

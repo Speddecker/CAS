@@ -5,7 +5,7 @@
  *
  */
 
-package by.gstu.Entities;
+package by.gstu.entities;
 
 import java.time.LocalDate;
 
@@ -100,7 +100,11 @@ public class Children {
 
     @Override
     public String toString() {
-        return "ID: " + id +  "\nФамилия: " + secondName + "\nИмя:" + firstName + "\nОтчество: " + thirdName + "\nДата рождения: " +
-                dateOfBirth + "\nГруппа: " + childGroupId;
+        return "{\"id\":" + id + "," +
+                "\"firstName\":\"" + firstName +"\"," +
+                "\"secondName\":\"" + secondName + "\"," +
+                "\"thirdName\":\"" + thirdName + "\"," +
+                "\"dateOfBirth\":\"" + dateOfBirth.toString() + "\"," +
+                "\"childGroupId\":\""+ childGroupId + "\"}";
     }
 }

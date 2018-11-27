@@ -1,0 +1,103 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Children accounting system</title>
+</head>
+
+<style>
+    table#main_table tr:nth-child(even) {
+        background-color: #eee;
+    }
+    table#main_table tr:nth-child(odd) {
+        background-color: #fff;
+    }
+    table#main_table th {
+        color: white;
+        background-color: darkslategray;
+    }
+</style>
+
+<body>
+    <!--header-->
+    <div>
+        <h1 align="center">Список детей</h1>
+    </div>
+
+    <!--main-->
+    <div>
+        <table id="main_table" align="center" cellpadding="5">
+            <tr>
+                <th>ID</th>
+                <th>Fisrt name</th>
+                <th>Second name</th>
+                <th>Third name</th>
+                <th>Date of birth</th>
+                <th>Child group ID</th>
+            </tr>
+            <script type="text/javascript">
+                function addCell(tableRow, index, data) {
+                    // Insert a cell in the row at cell index 0
+                    var newCell   = tableRow.insertCell(index);
+
+                    // Append a text node to the cell
+                    var newText  = document.createTextNode(data)
+                    newCell.appendChild(newText);
+                }
+
+                function loadData() {
+                    var ajax = new XMLHttpRequest();
+
+                    function reqReadyStateChange() {
+                        if (ajax.readyState === 4 && ajax.status === 200) {
+                            var children = JSON.parse(ajax.responseText);
+
+                            for (var i = 0; i < children.length; i++) {
+                                var table_row = document.createElement('tr');
+                                addCell(table_row, 0, children[i].id);
+                                addCell(table_row, 1, children[i].firstName);
+                                addCell(table_row, 2, children[i].secondName);
+                                addCell(table_row, 3, children[i].thirdName);
+                                addCell(table_row, 4, children[i].dateOfBirth.year + '-' +
+                                                      children[i].dateOfBirth.month + '-' +
+                                                      children[i].dateOfBirth.day);
+                                addCell(table_row, 5, children[i].childGroupId);
+
+                                var edit_link = document.createElement('a');
+                                edit_link.setAttribute("href", "/add_childrens?id=" + children[i].id);
+                                edit_link.innerHTML = "Edit";
+
+                                var delete_link = document.createElement('a');
+                                delete_link.setAttribute("href", "/add_childrens?action=delete&id=" + children[i].id);
+                                delete_link.innerHTML = "Delete";
+
+                                table_row.insertCell(6).appendChild(edit_link);
+                                table_row.insertCell(7).appendChild(delete_link);
+
+                                main_table.appendChild(table_row);
+                            }
+                        } else {
+                            alert("Статус запроса: " + ajax.statusText);
+                        }
+                    }
+
+                    ajax.open("POST", "/list_childrens", false);
+                    ajax.send(null);
+                    ajax.onreadystatechange = reqReadyStateChange();
+                }
+
+                loadData();
+            </script>
+        </table>
+        <form action="/add_childrens">
+            <button>Добавить новую информацию</button>
+        </form>
+    </div>
+
+    <!--footer-->
+    <div>
+        <h3 align="center">
+            <a href="../index.html">Вернуться на главную</a>
+        </h3>
+    </div>
+</body>
+</html>

@@ -5,7 +5,7 @@
  *
  */
 
-package by.gstu.dao.MySQLDAO;
+package by.gstu.dao.mysql;
 
 import by.gstu.dao.ChildGroupDAO;
 import by.gstu.dao.ChildrenDAO;

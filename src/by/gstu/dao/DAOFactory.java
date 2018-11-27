@@ -5,9 +5,9 @@
  *
  */
 
-package by.gstu.DAO;
+package by.gstu.dao;
 
-import by.gstu.DAO.MySQLDAO.MySQLDAOFactory;
+import by.gstu.dao.mysql.MySQLDAOFactory;
 
 
 /**

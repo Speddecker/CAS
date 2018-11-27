@@ -5,7 +5,7 @@
  *
  */
 
-package by.gstu.dao.MySQLDAO;
+package by.gstu.dao.mysql;
 
 import by.gstu.dao.ChildGroupDAO;
 import by.gstu.entities.ChildGroup;
@@ -103,7 +103,7 @@ public class MySQLChildGroupDAO implements ChildGroupDAO {
 
             resultSet.next();
             String name = resultSet.getString("name");
-            String educatorFullName = resultSet.getString("educatorFullName");
+            String educatorFullName = resultSet.getString("educator_full_name");
 
             return new ChildGroup(id, name, educatorFullName);
         } catch (SQLException e) {
@@ -126,7 +126,7 @@ public class MySQLChildGroupDAO implements ChildGroupDAO {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
-                String educatorFullName = resultSet.getString("educatorFullName");
+                String educatorFullName = resultSet.getString("educator_full_name");
 
                 childGroupList.add(new ChildGroup(id, name, educatorFullName));
             }
