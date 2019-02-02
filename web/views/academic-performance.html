@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CAS - Academic Performance</title>
+</head>
+
+<body>
+    <!--header-->
+    <div>
+        <h1><i>Успеваемость</i></h1>
+    </div>
+
+    <!--main-->
+    <div class="controls">
+        <form action="/add_groups" method="get">
+            <button class="right_block">Добавить новую запись</button>
+        </form>
+    </div>
+    <div id="data_table">
+        <!--Здесь будет создаваться таблица с данными-->
+    </div>
+
+    <!--footer-->
+    <div>
+        <h3 align="center">
+            <a href="../index.html">Вернуться на главную</a>
+        </h3>
+    </div>
+</body>
+
+<script type="text/javascript">
+    function addCell(tableRow, index, data) {
+        var newCell = tableRow.insertCell(index);
+
+        var newText = document.createTextNode(data)
+        newCell.appendChild(newText);
+    }
+
+    function createTable(parent, headers) {
+        var table = document.createElement('table');
+        table.setAttribute('align', 'center');
+
+        parent.appendChild(table);
+
+        //Создаём заголовки таблицы
+        var headersRow = document.createElement('tr');
+        for (var i = 0; i < headers.length; i++) {
+            var tableHeader = document.createElement('th');
+            var headerText = document.createTextNode(headers[i]);
+            tableHeader.appendChild(headerText);
+            headersRow.appendChild(tableHeader);
+        }
+        table.appendChild(headersRow);
+
+        return table;
+    }
+
+    function loadData() {
+        var ajax = new XMLHttpRequest();
+
+        function reqReadyStateChange() {
+            if (ajax.readyState === 4 && ajax.status === 200) {
+                var groups = JSON.parse(ajax.responseText);
+
+                //Получаем родительский div для таблицы
+                var dataDiv = document.getElementById('data_table');
+
+                var headers = ['ID', 'Оценка', 'ID учащегося', 'ID урока', 'Действия'];
+
+                var table = createTable(dataDiv, headers);
+
+                for (var i = 0; i < groups.length; i++) {
+                    var table_row = document.createElement('tr');
+                    addCell(table_row, 0, groups[i].id);
+                    addCell(table_row, 1, groups[i].mark);
+                    addCell(table_row, 2, groups[i].childrenId);
+                    addCell(table_row, 3, groups[i].lessonId);
+
+                    var edit_button = document.createElement('input');
+                    edit_button.setAttribute('type', 'button');
+                    edit_button.setAttribute('class', 'edit_button');
+                    edit_button.setAttribute('value', 'Изменить');
+
+                    var delete_button = document.createElement('input');
+                    delete_button.setAttribute('type', 'button');
+                    delete_button.setAttribute('class', 'delete_button');
+                    delete_button.setAttribute('value', 'Удалить');
+
+                    var actionCell = table_row.insertCell(4);
+
+                    actionCell.appendChild(edit_button);
+                    actionCell.appendChild(delete_button);
+
+                    table.appendChild(table_row);
+                }
+            } else {
+                alert("Статус запроса: " + ajax.statusText);
+            }
+        }
+
+        ajax.open("POST", "/academic-performance", false);
+        ajax.send(null);
+        ajax.onreadystatechange = reqReadyStateChange();
+    }
+
+    loadData();
+</script>
+
+<style>
+    body {
+        background-color: lightgray;
+    }
+
+    table {
+        width: 95%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #ff5555;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f0f0f0;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #ffffff;
+    }
+</style>
+
+</html>

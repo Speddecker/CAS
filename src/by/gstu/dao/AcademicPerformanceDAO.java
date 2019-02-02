@@ -5,9 +5,9 @@ import by.gstu.entities.AcademicPerformance;
 import java.util.List;
 
 public interface AcademicPerformanceDAO {
-    boolean insertAcademicPerformance(AcademicPerformance ap);
-    boolean updateAcademicPerformance(AcademicPerformance ap);
-    boolean deleteAcademicPerformance(AcademicPerformance ap);
+    boolean insert(AcademicPerformance ap);
+    boolean update(AcademicPerformance ap);
+    boolean delete(AcademicPerformance ap);
     AcademicPerformance findAcademicPerformance(int id);
     List<AcademicPerformance> getAllAcademicPerformance();
 }

@@ -3,7 +3,6 @@ package by.gstu.servlets;
 import by.gstu.dao.ChildGroupDAO;
 import by.gstu.dao.DAOFactory;
 import by.gstu.entities.ChildGroup;
-import by.gstu.entities.Children;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
@@ -14,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/list_groups")
+@WebServlet("/groups")
 public class ListGroupsServlet extends HttpServlet {
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
     private ChildGroupDAO childGroupDAO = factory.getChildGroupDAO();
@@ -22,7 +21,7 @@ public class ListGroupsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        request.getRequestDispatcher("views/list_groups.html").forward(request, response);
+        request.getRequestDispatcher("views/groups.html").forward(request, response);
     }
 
     @Override

@@ -7,14 +7,11 @@
 
 package by.gstu.dao.mysql;
 
-import by.gstu.dao.ChildGroupDAO;
-import by.gstu.dao.ChildrenDAO;
-import by.gstu.dao.DAOFactory;
-import by.gstu.dao.LessonDAO;
+import by.gstu.dao.*;
 import by.gstu.util.ConnectionPool;
 import by.gstu.util.MySQLConnectionPool;
 
-import java.sql.*;
+import java.sql.Connection;
 
 
 /**
@@ -58,5 +55,9 @@ public class MySQLDAOFactory extends DAOFactory {
     @Override
     public LessonDAO getLessonDAO() {
         return new MySQLLessonDAO();
+    }
+
+    public AcademicPerformanceDAO  getAcademicPerformanceDAO() {
+        return  new MySQLAcademicPerformanceDAO();
     }
 }

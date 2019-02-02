@@ -10,10 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/list_childrens")
+@WebServlet("/childrens")
 public class ListChildrensServlet extends HttpServlet {
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
     private ChildrenDAO childrenDAO = factory.getChildrenDAO();
@@ -21,7 +21,7 @@ public class ListChildrensServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("views/list_childrens.html").forward(request, response);
+        request.getRequestDispatcher("views/childrens.html").forward(request, response);
     }
 
     @Override

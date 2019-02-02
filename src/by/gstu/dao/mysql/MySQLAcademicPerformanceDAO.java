@@ -18,7 +18,7 @@ public class MySQLAcademicPerformanceDAO implements AcademicPerformanceDAO {
     public MySQLAcademicPerformanceDAO() { connection = MySQLDAOFactory.getConnection(); }
 
     @Override
-    public boolean insertAcademicPerformance(AcademicPerformance ap) {
+    public boolean insert(AcademicPerformance ap) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(queries.getString("INSERT_AP"));
             preparedStatement.setInt(0, ap.getMark());
@@ -33,7 +33,7 @@ public class MySQLAcademicPerformanceDAO implements AcademicPerformanceDAO {
     }
 
     @Override
-    public boolean updateAcademicPerformance(AcademicPerformance ap) {
+    public boolean update(AcademicPerformance ap) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(queries.getString("UPDATE_AP_BY_ID"));
             preparedStatement.setInt(0, ap.getMark());
@@ -49,7 +49,7 @@ public class MySQLAcademicPerformanceDAO implements AcademicPerformanceDAO {
     }
 
     @Override
-    public boolean deleteAcademicPerformance(AcademicPerformance ap) {
+    public boolean delete(AcademicPerformance ap) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(queries.getString("DELETE_AP_BY_ID"));
             preparedStatement.setInt(0, ap.getId());
@@ -70,8 +70,8 @@ public class MySQLAcademicPerformanceDAO implements AcademicPerformanceDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
             int mark = resultSet.getInt("mark");
-            int lessonId = resultSet.getInt("lesson_id");
-            int childrenId = resultSet.getInt("children_id");
+            int lessonId = resultSet.getInt("lessons_id");
+            int childrenId = resultSet.getInt("childrens_id");
 
             return new AcademicPerformance(id, mark, lessonId, childrenId);
         } catch (SQLException e) {
@@ -90,8 +90,8 @@ public class MySQLAcademicPerformanceDAO implements AcademicPerformanceDAO {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 int mark = resultSet.getInt("mark");
-                int lessonId = resultSet.getInt("lesson_id");
-                int childrenId = resultSet.getInt("children_id");
+                int lessonId = resultSet.getInt("lessons_id");
+                int childrenId = resultSet.getInt("childrens_id");
 
                 apList.add(new AcademicPerformance(id, mark, lessonId, childrenId));
             }

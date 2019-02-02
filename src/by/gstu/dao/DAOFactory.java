@@ -21,6 +21,7 @@ public abstract class DAOFactory {
     public abstract ChildrenDAO getChildrenDAO();
     public abstract ChildGroupDAO getChildGroupDAO();
     public abstract LessonDAO getLessonDAO();
+    public abstract AcademicPerformanceDAO getAcademicPerformanceDAO();
 
     public static DAOFactory getDAOFactory(int factory) {
         switch (factory) {
